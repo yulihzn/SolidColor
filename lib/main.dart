@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:solidcolor/com/home/utils/Strings.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primaryColor: Colors.white,
       ),
-      home: MyHomePage(title: ' '),
+      home: WelcomePage(title: ' '),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -34,8 +35,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class WelcomePage extends StatefulWidget {
+  WelcomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -49,10 +50,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+class _WelcomePageState extends State<WelcomePage> with TickerProviderStateMixin {
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -72,7 +73,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         child: Container(
 
           child: Text(
-            'Tap To Continue',
+            Strings.welcome_start,
+            style: new TextStyle(
+              fontSize: 20,
+              letterSpacing: 4
+            ),
           ),
         ),
       ),
