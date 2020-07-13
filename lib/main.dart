@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:solidcolor/com/home/utils/Strings.dart';
+import 'package:solidcolor/com/home/homepage.dart';
+import 'package:solidcolor/com/home/utils/strings.dart';
 
 void main() => runApp(MyApp());
 
@@ -53,16 +54,7 @@ class WelcomePage extends StatefulWidget {
   _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _WelcomePageState extends State<WelcomePage> with TickerProviderStateMixin {
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-    });
-  }
+class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +63,18 @@ class _WelcomePageState extends State<WelcomePage> with TickerProviderStateMixin
       backgroundColor: Colors.white,
       body: Center(
         child: Container(
-
+          child: GestureDetector(onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_){
+              return HomePage();
+            }));
+          },
           child: Text(
             Strings.welcome_start,
             style: new TextStyle(
-              fontSize: 20,
-              letterSpacing: 4
+                fontSize: 20,
+                letterSpacing: 4
             ),
-          ),
+          ),),
         ),
       ),
     );
